@@ -6,11 +6,22 @@
     </head>
     <body>
         <h1>Log in:</h1>
-        <input id="input_login_id" placeholder="id"><br><br>
-        <input id="input_login_password" placeholder="password">
+        <form action="/login" method="post">
+            <label for="name">ID:</label>
+            <input type="number" id="sid" name="sid"><br><br>
+            <label for="lname">Password:</label>
+            <input type="text" id="pass" name="pass"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+
         <br><br>
         <h1>Register:</h1>
-        <input id="input_register_id" placeholder="id"><br><br>
-        <input id="input_register_password" placeholder="password">
+        <form action="/register" method="post">
+            <label for="name">ID:</label>
+            <input type="number" id="sid" name="sid"><br><br>
+            <label for="lname">Password:</label>
+            <input type="text" id="pass" name="pass"><br><br>
+            <input type="submit" value="Submit">
+        </form>
     </body>
 </html>
