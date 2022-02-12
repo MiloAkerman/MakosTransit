@@ -1,12 +1,20 @@
-if(!confirmSessionToken()) window.location.replace("./login.html");
+
+
+
+if (confirmSessionToken() == false) {
+    window.location.href = "login.html";
+}
 
 $( document ).ready(function() {
     
 });
 
 function confirmSessionToken() {
-    if(localStorage.getItem("session_token") == null) return false;
-    // token validation stuff
-
-    return true;
+  
+    if (localStorage.getItem("session_token") == "null") {
+        return false;
+    }
+    else {
+        return true;
+    }
 }

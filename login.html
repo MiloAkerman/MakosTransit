@@ -1,9 +1,9 @@
 <html>
-    <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="scripts/login.js"></script>
-    </head>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="scripts/login.js"></script>
+</head>
     <body>
         <h1>Log in:</h1>
         <form action="/login" method="post">
@@ -11,7 +11,7 @@
             <input type="number" id="sid" name="sid"><br><br>
             <label for="lname">Password:</label>
             <input type="text" id="pass" name="pass"><br><br>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit" onclick="Login()">
         </form>
 
         <br><br>
@@ -21,7 +21,7 @@
             <input type="number" id="sid" name="sid"><br><br>
             <label for="lname">Password:</label>
             <input type="text" id="pass" name="pass"><br><br>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit" onclick="Register()">
         </form>
     </body>
 </html>
