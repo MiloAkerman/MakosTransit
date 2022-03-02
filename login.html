@@ -1,27 +1,28 @@
 <html>
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="scripts/login.js"></script>
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-    <body>
-        <h1>Log in:</h1>
-        <form action="/login" method="post">
-            <label for="name">ID:</label>
-            <input type="number" id="sid" name="sid"><br><br>
-            <label for="lname">Password:</label>
-            <input type="text" id="pass" name="pass"><br><br>
-            <input type="submit" value="Submit" onclick="Login()">
-        </form>
-
-        <br><br>
-        <h1>Register:</h1>
-        <form action="/register" method="post">
-            <label for="name">ID:</label>
-            <input type="number" id="sid" name="sid"><br><br>
-            <label for="lname">Password:</label>
-            <input type="text" id="pass" name="pass"><br><br>
-            <input type="submit" value="Submit" onclick="Register()">
-        </form>
-    </body>
+<body>
+  <div class="loginWrapper">
+      <form action="">
+        <h2>Username</h2>
+        <input type="text" name="" id="">
+        <h2>Password</h2>
+        <input type="text" name="" id="">
+        <button type="submit" style="font-family: 'Titillium Web', sans-serif; margin-top: 10px; border-width: 1px; border-radius: 10px;">Submit</button>
+      </form>
+    </div>
+    <div class="registerWrapper">
+      <form action="">
+        <h2>Username</h2>
+        <input type="text" name="" id="">
+        <h2>Password</h2>
+        <input type="text" name="" id="">
+        <button type="submit" style="font-family: 'Titillium Web', sans-serif; margin-top: 10px; border-width: 1px; border-radius: 10px;">Submit</button>
+      </form>
+    </div>
+</body>
 </html>
