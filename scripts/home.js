@@ -1,6 +1,3 @@
-
-
-
 if (confirmSessionToken() == false) {
     window.location.href = "login.html";
 }

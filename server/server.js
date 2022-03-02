@@ -1,42 +1,47 @@
-const express = require("express");
+// express lib
+import express from "express";
 const app = new express();
 
-const bodyParser = require("body-parser");
+// bodyparset express config
+import bodyParser from "body-parser";
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-const router = express.Router();
-let path = require("path");
 
+// ???
+import path from "path";
 let startingloc = path.resolve("").replace("server", "");
-console.log(startingloc);
-app.use("/", router);
-class Login12 {
-     ID = "";
-    pass = "";
-    constructor(ID, pass) {
-        this.ID = ID;
-        this.pass = pass;
-    }
-}
-let logintester = new Login12("1234", "test");
-let databaseinfo = new Array();
-databaseinfo.push(logintester);
 
+// express router setup
+const router = express.Router();
+app.use("/", router);
 app.use(express.static(startingloc));
 
-app.get("/", (req, res) => {
+// Import required AWS SDK clients and commands for Node.js.
+import { PutObjectCommand, CreateBucketCommand } from "@aws-sdk/client-s3";
+import { s3Client } from "./libs/awsClient.js";
 
+// -------------------------- END BOILERPLATE -----------------------------------------------
+
+// Set the AWS parameters
+const params = {
+    bucket: "carpool-project", // The name of the bucket. For example, 'sample_bucket_101'.
+    key: "udata.json" // The name of the object. For example, 'sample_upload.txt'.
+};
+
+// serves login (init) page
+// address: localhost, port: 3000
+app.get("/", (req, res) => {
     res.sendFile(startingloc + "login.html");
-}).listen(1000, "localhost");
-router.get("/login", (req, res) => {
-   
-    res.send("<script type = 'text/javascript'> localStorage.setItem('session_token', 'testing'); document.location.href = 'login.html';</script>");
+}).listen(3000, "localhost");
+
+
+// GET and POST handlers
+router.get("/login", (req, res) => {   
+    res.send("You are trying to access login page");
 })
-router.post("/Video", (req, res) => {
-    
-    console.log(req.body);
-})
-router.post("/Login", (req, res) => {
+router.post("/login", (req, res) => {
+    // TODO: integrate AWS S3
+
     let bool = false;
     databaseinfo.forEach(login => {
         console.log(req.body);
@@ -50,10 +55,7 @@ router.post("/Login", (req, res) => {
     });
     setTimeout(() => {
         if (bool == true) {
-            
-
             setTimeout(() => { res.send("<script type = 'text/javascript'> document.location.href = 'home.html'; </script>"); }, 1000);
-            
         }
         else {
             res.send("<script type = 'text/javascript'> document.location.href = 'login.html'; </script>")
