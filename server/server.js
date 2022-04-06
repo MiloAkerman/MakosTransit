@@ -18,7 +18,6 @@ app.use(express.static(startingloc));
 
 // Import required AWS SDK clients and commands for Node.js.
 import { PutObjectCommand, CreateBucketCommand } from "@aws-sdk/client-s3";
-import { s3Client } from "./libs/awsClient.js";
 
 // -------------------------- END BOILERPLATE -----------------------------------------------
 
