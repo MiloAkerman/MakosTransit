@@ -18,13 +18,14 @@ app.use(express.static(startingloc));
 
 // Import required AWS SDK clients and commands for Node.js.
 import { PutObjectCommand, CreateBucketCommand } from "@aws-sdk/client-s3";
+import { s3Client } from "./libs/awsClient.js";
 
 // -------------------------- END BOILERPLATE -----------------------------------------------
 
 // Set the AWS parameters
 const params = {
-    bucket: "carpool-project", // The name of the bucket. For example, 'sample_bucket_101'.
-    key: "udata.json" // The name of the object. For example, 'sample_upload.txt'.
+    Key: "udata.json", // The name of the object. For example, 'sample_upload.txt'.
+    Body: "TEST",
 };
 
 // serves login (init) page
@@ -33,10 +34,15 @@ app.get("/", (req, res) => {
     res.sendFile(startingloc + "login.html");
 }).listen(3000, "localhost");
 
-
 // GET and POST handlers
 router.get("/login", (req, res) => {   
     res.send("You are trying to access login page");
+    testS3({
+        Key: "udata.json",
+        Body: JSON.stringify({
+            test: "EDIT-THIS"
+        }),
+    });
 })
 router.post("/login", (req, res) => {
     // TODO: integrate AWS S3
@@ -63,3 +69,7 @@ router.post("/login", (req, res) => {
 
 });
 
+async function s3Log(data) {
+    data["Bucket"] = "carpool-project";
+    s3Client.send(new PutObjectCommand(data));
+}
