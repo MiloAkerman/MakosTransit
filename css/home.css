@@ -1,0 +1,55 @@
+body {
+    background: rgb(243,175,11);
+    background: linear-gradient(0deg, rgb(236, 204, 127) 40%, rgb(218, 96, 121) 80%);
+
+    overflow: hidden;
+}
+
+.wave {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    user-select: none;
+}
+#wave1 {
+    bottom: -100px;
+    z-index: 1;
+}
+#wave2 {
+    bottom: -110px;
+    z-index: 2;
+}
+#wave3 {
+    bottom: -120px;
+    z-index: 3;
+}
+#sun {
+    background: #FFF6A8;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+
+    position: fixed;
+    left: 75%;
+    top: 210px;
+    transform: translateX(-50%);
+
+    user-select: none;
+}
+
+.frosted-glass {
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(8px);
+}
+#backplate {
+    width: 50%;
+    height: 70%;
+
+    position: fixed;
+    left: 33%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    z-index: 5;
+    border-radius: 40px;
+}
